@@ -2,6 +2,7 @@ package com.augmentis.ayp.aypquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +26,45 @@ public class QuizActivity extends AppCompatActivity {
 
     int currentIndex; //set question display number
 
+    private static final String TAG = "AYPQUIZ";
+    private static final String INDEX = "INDEX";
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "on stop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "on destroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "on pause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "on resume");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "on start");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "stage is saving");
+        outState.putInt(INDEX, currentIndex);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +74,18 @@ public class QuizActivity extends AppCompatActivity {
         falseButton = (Button) findViewById(R.id.false_button);
         nextButton = (Button) findViewById(R.id.next_button);
         previousButton = (Button) findViewById(R.id.previous_button);
-        questionText = (TextView) findViewById(R.id.text_question);
 
-        currentIndex = 0;
+
+        if (savedInstanceState != null){
+            currentIndex = savedInstanceState.getInt(INDEX, 0);
+        } else {
+            currentIndex = 0;
+        }
+        //currentIndex = 0;
+        questionText = (TextView) findViewById(R.id.text_question);
         questionText.setText(questions[currentIndex].getQuestionId());
+
+
 
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
