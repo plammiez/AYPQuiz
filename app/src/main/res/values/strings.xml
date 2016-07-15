@@ -9,6 +9,7 @@
     <string name="question_1_nile"> The longest river in the world is Nile ?  </string> <!-- true -->
     <string name="question_2_rawin"> Rawin is happy ?  </string> <!-- true -->
     <string name="question_3_math"> 2 + 2 = 5 ?  </string> <!-- false -->
-    <string name="question_4_mars"> Mars does not have moon ?  </string> <!-- false -->
+    <string name="question_4_mars"> Mars does not have moon ?  </string>
+    <string name="previous_button">Previous</string> <!-- false -->
 
 </resources>
