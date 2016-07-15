@@ -15,6 +15,8 @@
     <string name="confirm_button">You really want to know the answer ?</string>
     <string name="answer_is_true">Answer is Correct.</string>
     <string name="answer_is_false">Answer is Incorrect.</string>
-    <string name="cheater_text">You are Cheater!</string> <!-- false -->
+    <string name="cheater_text">You are Cheater!</string>
+    <string name="question_5_week">Weeks have seven days ?</string>
+    <string name="question_6_people">People can fly ?</string> <!-- false -->
 
 </resources>

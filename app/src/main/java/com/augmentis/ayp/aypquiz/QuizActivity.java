@@ -21,12 +21,13 @@ public class QuizActivity extends AppCompatActivity {
     Button cheatButton;
     TextView questionText;
 
-
     Question[] questions = new Question[]{
             new Question(R.string.question_1_nile, true),
             new Question(R.string.question_2_rawin, true),
             new Question(R.string.question_3_math, false),
-            new Question(R.string.question_4_mars, false)
+            new Question(R.string.question_4_mars, false),
+            new Question(R.string.question_5_week, true),
+            new Question(R.string.question_6_people, false)
     };
 
     int currentIndex; //set question display number
@@ -90,8 +91,6 @@ public class QuizActivity extends AppCompatActivity {
         }
         //currentIndex = 0;
 
-        isCheater = false;
-
         questionText = (TextView) findViewById(R.id.text_question);
         questionText.setText(questions[currentIndex].getQuestionId());
 
@@ -124,6 +123,7 @@ public class QuizActivity extends AppCompatActivity {
 
 //                currentIndex = (currentIndex+1) % questions.length;
 //                questionText.setText(questions[currentIndex].getQuestionId());
+
                 isCheater = false;
                 currentIndex = (++currentIndex) % questions.length;
                 questionText.setText(questions[currentIndex].getQuestionId());
@@ -133,8 +133,8 @@ public class QuizActivity extends AppCompatActivity {
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 isCheater = false;
+
                 if (currentIndex == 0) { //0 1 2
                     currentIndex = questions.length - 1;
                 } else if (currentIndex > 0 && currentIndex < questions.length) {
