@@ -75,7 +75,6 @@ public class QuizActivity extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.next_button);
         previousButton = (Button) findViewById(R.id.previous_button);
 
-
         if (savedInstanceState != null){
             currentIndex = savedInstanceState.getInt(INDEX, 0);
         } else {
@@ -84,8 +83,6 @@ public class QuizActivity extends AppCompatActivity {
         //currentIndex = 0;
         questionText = (TextView) findViewById(R.id.text_question);
         questionText.setText(questions[currentIndex].getQuestionId());
-
-
 
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +134,6 @@ public class QuizActivity extends AppCompatActivity {
     private void checkAnswer(boolean answer) {
 
         boolean currentAnswer = questions[currentIndex].getAnswer();
-
 //        if (answer == currentAnswer) {
 //            Toast.makeText(QuizActivity.this, R.string.correct_text,  Toast.LENGTH_SHORT).show();
 //        } else {
@@ -146,7 +142,6 @@ public class QuizActivity extends AppCompatActivity {
 
         int result = (answer == currentAnswer) ? R.string.correct_text : R.string.incorrect_text;
         Toast.makeText(QuizActivity.this, result,  Toast.LENGTH_SHORT).show();
-
 //        if(answer == currentAnswer){
 //            result = R.string.correct_text;
 //        } else {
